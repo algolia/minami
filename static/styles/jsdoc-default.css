@@ -241,7 +241,8 @@ footer {
 }
 
 .type-signature {
-  color: #aaa
+  color: #aaa;
+  white-space:nowrap;
 }
 
 .name, .signature {

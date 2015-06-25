@@ -129,9 +129,7 @@
     ?>
         <h3 class="subsection-title">Members</h3>
 
-        <?js members.forEach(function(p) { ?>
-            <?js= self.partial('members.tmpl', p) ?>
-        <?js }); ?>
+        <?js= self.partial('members-table.tmpl', members) ?>
     <?js } ?>
 
     <?js

@@ -1,0 +1,29 @@
+<?js
+var members = obj;
+var self = this;
+?>
+<table class="params">
+<thead>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th class="last">Description</th>
+  </tr>
+</thead>
+<?js members.forEach(function( data ) { ?>
+  <tr id="<?js= data.id ?>">
+    <td class="name" ><code><?js= data.name ?></code></td>
+    <td class="type-signature"><?js= data.type?self.linkto(data.type.names[0], self.htmlsafe(data.type.names[0])):'' ?></td>
+    <td class="description">
+      <?js= data.description?data.description:'' ?>
+      <?js if (data.see && data.see.length) {?>
+        <p>
+          <?js data.see.forEach(function(s) { ?>
+            <?js= self.linkto(s, s.split( '#' )[1] + " on Algolia.com"  ) ?>
+          <?js }); ?>
+        </p>
+      <?js } ?>
+    </td>
+  </tr>
+<?js }); ?>
+</table>
