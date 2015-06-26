@@ -17,6 +17,7 @@
     <?js= self.partial('source.tmpl', doc) ?>
 <?js } else { ?>
 
+
 <section>
 
 <header>
@@ -42,6 +43,7 @@
 
 <article>
     <div class="container-overview">
+
     <?js if (doc.kind === 'module' && doc.modules) { ?>
         <?js if (doc.description) { ?>
             <div class="description"><?js= doc.description ?></div>
@@ -137,6 +139,12 @@
         if (methods && methods.length && methods.forEach) {
     ?>
         <h3 class="subsection-title">Methods</h3>
+
+        <p>
+        <?js methods.forEach(function(m) { ?>
+          <code><a href="#<?js= m.id ?>"><?js= m.name ?></a></code>
+        <?js }); ?>
+        </p>
 
         <?js methods.forEach(function(m) { ?>
             <?js= self.partial('method.tmpl', m) ?>
